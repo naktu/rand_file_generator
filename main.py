@@ -2,19 +2,26 @@
 import string
 from sys import argv
 import random
+import os
 
-PATH = "./files"
-LENFILE = 1000
-FILENAMELEN = 24
+PATH = "./files/"
+LENFILE = 16384
+FILENAMELEN = 32
 SYMBOLS = string.ascii_uppercase + string.digits + string.ascii_uppercase.lower()
 
-
-print(SYMBOLS)
 end = len(SYMBOLS)
 
-for i in range(0, 1000, 1):
+COUNTFILES = int(argv[1])
+
+for i in range(0, COUNTFILES, 1):
     rand_string = ""
-    for j in range(0, 10000, 1):
+    file_name = ""
+    for j in range(0, LENFILE, 1):
         rand_string += SYMBOLS[random.randrange(0, end, 1)]
-    #print(rand_string)
-    #print(" ")
+
+    for j in range(0, FILENAMELEN, 1):
+        file_name += SYMBOLS[random.randrange(0, end, 1)]
+
+    f = open(PATH+file_name, "w")
+    f.write(rand_string)
+    f.close()
