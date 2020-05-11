@@ -7,7 +7,7 @@ import os
 PATH = "./files/"
 LENFILE = 16384     # Count symbols in file
 FILENAMELEN = 32    # Count symbols in file name
-SYMBOLS = string.ascii_uppercase + string.digits + string.ascii_uppercase.lower()   # Symbols for generate name and content
+SYMBOLS = '{}{}{}'.format(string.ascii_uppercase, string.digits, string.ascii_uppercase.lower())   # Symbols for generate name and content
 
 end = len(SYMBOLS)
 
